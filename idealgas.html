@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <div>
+        <p>Ideal Gas Law: PV = nRT</p>
+        <select id="choose7">
+            <option value="P">Pressure (P)</option>
+            <option value="V">Volume (V)</option>
+            <option value="n">Moles (n)</option>
+            <option value="T">Temperature (T)</option>
+            
+        </select>
+        <input type="number" id="P" placeholder="Pressure">
+        <input type="number" id="V" placeholder="Volume">
+        <input type="number" id="n" placeholder="Moles">
+        <input type="number" id="T" placeholder="Temperature">
+        <button onclick="solveSeventhEquation()">SOLVE</button>
+        <div id="answer7"></div>
+        <canvas id="idealGasChart" width="50" height="50"></canvas>
+        <button onclick="downloadChart('idealGasChart')""> Download chart </button>
+    </div>
+
+    <script src="equation.js"></script>
+
+    <script>
+        function downloadChart(chartId) {
+    const chartCanvas = document.getElementById(chartId);
+    const imageLink = document.createElement('a');
+    imageLink.href = chartCanvas.toDataURL('image/png'); // Convert to base64 image URL
+    imageLink.download = chartId + '.png'; 
+    imageLink.click(); // Trigger download
+}
+    </script>
+    
+</body>
+</html>
